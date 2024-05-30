@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио Еремеев В. А.</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 80px;
+        }
+        .portfolio-section {
+            margin-top: 20px;
+        }
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #e9ecef;
+            margin-top: 20px;
+        }
+        .timeline {
+            list-style: none;
+            padding: 0;
+        }
+        .timeline li {
+            margin-bottom: 20px;
+        }
+        .card-img-top {
+            width: 100%;
+            height: auto;
+            max-width: 150px;
+            max-height: 175px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+    </style>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        function Navbar() {
+            const handleNavLinkClick = () => {
+                const navBarToggler = document.querySelector('.navbar-toggler');
+                const navBarCollapse = document.querySelector('.navbar-collapse');
+                if (navBarToggler && navBarCollapse.classList.contains('show')) {
+                    navBarToggler.click();
+                }
+            };
+
+            return (
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                    <div className="container">
+                        <a className="navbar-brand" href="#">Портфолио</a>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Навигация">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarResponsive">
+                            <ul className="navbar-nav ml-auto">
+                                <li className="nav-item"><a className="nav-link" href="#about" onClick={handleNavLinkClick}>Обо мне</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#projects" onClick={handleNavLinkClick}>Проекты</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#skills" onClick={handleNavLinkClick}>Навыки</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#work" onClick={handleNavLinkClick}>Опыт работы</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#education" onClick={handleNavLinkClick}>Образование</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#blog" onClick={handleNavLinkClick}>Блог</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#contact" onClick={handleNavLinkClick}>Контакты</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            );
+        }
+
+
+        function Home() {
+            return (
+                <div className="jumbotron">
+                    <div className="container">
+                        <h1>Привествую на странице моего "портфолио"</h1>
+                        <p>Написано на React с рендерингом при помощи ReactDOM и Babel для компиляции кода сразу в браузере в JS, без сервера; используются элементы Bootstrap для навбара</p>
+                    </div>
+                </div>
+            );
+        }
+
+        function About() {
+            return (
+                <div id="about" className="container portfolio-section">
+                    <h1>Обо мне</h1>
+                    <p>Меня зовут Еремеев Валерий. Учусь на 3 курсе в Финансовом университете, работаю системным администратором Linux.</p>
+                </div>
+            );
+        }
+
+        function Projects() {
+            return (
+                <div id="projects" className="container portfolio-section">
+                    <h1>Проекты</h1>
+                    <p>Примерный раздел с проектами:</p>
+                    <div className="card-deck">
+                        <div className="card">
+                            <img src="https://fstec.ru/images/simbols/fstec.png" className="card-img-top" alt="Ansible ФСТЭК"/>
+                            <div className="card-body">
+                                <h5 className="card-title">Ansible ФСТЭК</h5>
+                                <p className="card-text">Тут могла бы быть ссылка на проект по применению рекомендаций ФСТЭК и кибербезопасников, описанные ролями Ansible, но ссылка ведёт репозиторий в сети компании.</p>
+                                <a href="https://github.com/VladimirAndropov/fa-wd-practice-javascript/tree/eremeev" className="btn btn-primary" target="_blank" rel="noopener noreferrer">Посмотреть (переход по ссылке)</a>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/ansible/ansible.png" className="card-img-top" alt="Ansible роли"/>
+                            <div className="card-body">
+                                <h5 className="card-title">Ansible роли</h5>
+                                <p className="card-text">Тут могла бы быть ссылка на ещё один репозиторий с Ansible ролями по администрированию Linux дистрибутивов, основанных на Debian и RedHat, но её тоже не будет по той же причине - всё в репозитории компании.</p>
+                                <a href="https://github.com/VladimirAndropov/fa-wd-practice-javascript/tree/eremeev" className="btn btn-primary" target="_blank" rel="noopener noreferrer">Посмотреть (переход по ссылке)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function Skills() {
+            return (
+                <div id="skills" className="container portfolio-section">
+                    <h1>Навыки</h1>
+                    <p>Мои технические навыки включают в себя (но не ограничиваются):</p>
+                    <div className="progress mb-3">
+                        <div className="progress-bar" role="progressbar" style={{width: "73%"}} aria-valuenow="73" aria-valuemin="0" aria-valuemax="100">Linux (Debian-Ubuntu)</div>
+                    </div>
+                    <div className="progress mb-3">
+                        <div className="progress-bar bg-info" role="progressbar" style={{width: "65%"}} aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">Ansible</div>
+                    </div>
+                    <div className="progress mb-3">
+                        <div className="progress-bar bg-warning" role="progressbar" style={{width: "55%"}} aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">PostgreSQL</div>
+                    </div>
+                    <div className="progress mb-3">
+                        <div className="progress-bar bg-success" role="progressbar" style={{width: "40%"}} aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">Linux (RedHat)</div>
+                    </div>
+                </div>
+            );
+        }
+
+        function WorkExperience() {
+            return (
+                <div id="work" className="container portfolio-section">
+                    <h1>Опыт работы</h1>
+                    <div className="card-deck">
+                        <div className="card">
+                            <img src="https://magistral-blag.ru/wp-content/uploads/2023/10/leasing-logo-sber.jpg" className="card-img-top" alt="Лого СберЛизинг"/>
+                            <div className="card-body">
+                                <h5 className="card-title">Системный администратор</h5>
+                                <h6 className="card-subtitle mb-2 text-muted">СберЛизинг, 2023 - Текущий момент</h6>
+                                <p className="card-text">Администрирование 200+ Linux машин, поддержка БД PostgreSQL.</p>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <img src="https://static.tildacdn.com/tild3064-3230-4865-a533-303938653035/40.jpg" className="card-img-top" alt="Лого Naumen"/>
+                            <div className="card-body">
+                                <h5 className="card-title">Инженер технической поддержки</h5>
+                                <h6 className="card-subtitle mb-2 text-muted">Naumen, 2022 - 2023</h6>
+                                <p className="card-text">Инфраструктурная поддержка продукта Naumen ITSM - настройка окружения и приложения.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function Education() {
+            return (
+                <div id="education" className="container portfolio-section">
+                    <h1>Образование</h1>
+                    <ul className="timeline">
+                        <li>
+                            <strong>2021 - Текущий момент: Прикладная информатика (бакалавриат)</strong>
+                            <p>Финансовый университет при правительстве РФ, Москва</p>
+                        </li>
+                    </ul>
+                </div>
+            );
+        }
+
+        class Blog extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { expandedPost: null };
+            }
+
+            togglePost(postId, event) {
+                event.preventDefault();
+                this.setState({ expandedPost: this.state.expandedPost === postId ? null : postId });
+            }
+
+            calculateDaysAgo(date) {
+                const now = new Date();
+                const postDate = new Date(date);
+                const diffTime = Math.abs(now - postDate);
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+                return `${diffDays} дней назад`;
+            }
+
+            render() {
+                const posts = [
+                    {
+                        id: 1,
+                        title: 'Пост 1 для примера',
+                        date: '2024-05-25',
+                        summary: 'Это краткое описание поста, допустим, об Ansible роли',
+                        content: 'А тут полный контент после раскрытия поста, включающий в себя детали реализации - но форматирования кода нет, просто текст. React State Management и Event Handling.'
+                    },
+                    {
+                        id: 2,
+                        title: 'Пост 2 для примера',
+                        date: '2024-05-23',
+                        summary: 'А тут пост о каких-то будущих проектах, например',
+                        content: 'Тоже детали после раскрытия.'
+                    }
+                ];
+
+                return (
+                    <div id="blog" className="container portfolio-section">
+                        <h1>Блог</h1>
+                        <div className="list-group">
+                            {posts.map(post => (
+                                <div key={post.id}>
+                                    <a href="#" className="list-group-item list-group-item-action flex-column align-items-start" onClick={(e) => this.togglePost(post.id, e)}>
+                                        <div className="d-flex w-100 justify-content-between">
+                                            <h5 className="mb-1">{post.title}</h5>
+                                            <small>{this.calculateDaysAgo(post.date)}</small>
+                                        </div>
+                                        <p className="mb-1">{post.summary}</p>
+                                        <small>{this.state.expandedPost === post.id ? 'Свернуть' : 'Раскрыть'}</small>
+                                    </a>
+                                    {this.state.expandedPost === post.id && (
+                                        <div className="mt-2">
+                                            <p>{post.content}</p>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                );
+            }
+        }
+
+        function Contact() {
+            return (
+                <div id="contact" className="container portfolio-section">
+                    <h1>Контакты</h1>
+                    <p>Можно написать на почту <a href="mailto:215703@edu.fa.ru">215703@edu.fa.ru</a> или перейти на GitHub</p>
+                    <ul className="list-unstyled">
+                        <li><a href="https://github.com/waere00/eremeev-fa-wd-practice-javascript">GitHub</a></li>
+                    </ul>
+                </div>
+            );
+        }
+
+        function Footer() {
+            return (
+                <div className="footer">
+                    <p>© 2024</p>
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <>
+                    <Navbar />
+                    <Home />
+                    <About />
+                    <Projects />
+                    <Skills />
+                    <WorkExperience />
+                    <Education />
+                    <Blog />
+                    <Contact />
+                    <Footer />
+                </>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
